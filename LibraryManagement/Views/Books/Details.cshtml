@@ -1,0 +1,82 @@
+﻿@model LibraryManagement.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+    <hr/>
+    <h4>About Author</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                
+                Gender
+            </th>
+            <th>
+                Born In
+            </th>
+            <th>
+                About
+            </th>
+            <th></th>
+        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Author.AuthorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Author.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Author.Gender.GenderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Author.Country.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Author.About)
+                </td>
+            </tr>
+        </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,92 @@
+﻿@model LibraryManagement.Models.Author
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.GenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.GenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.About)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.About)
+        </dd>
+
+    </dl>
+    <hr/>
+    <h4>Books Written By Author</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Book
+            </th>
+            <th>
+                ISBN Number
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
